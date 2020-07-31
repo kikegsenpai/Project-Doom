@@ -5,8 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShootController : MonoBehaviour
+public class WeaponBehaviour : MonoBehaviour
 {
+    public float damage = 30f;
     public SoundManagerScript soundFX;
     public TextMeshProUGUI ammoDisplay;
     public GameObject blood;
@@ -15,6 +16,7 @@ public class ShootController : MonoBehaviour
     public float cooldownShoot = 0.5f;
     float nextShot = 0f;
     public Animator animacion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +26,13 @@ public class ShootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             ammoCount = 10;
         }
-        if (Input.GetButtonDown("Fire1") && nextShot<=0 && ammoCount>0)
+        if (Input.GetButtonDown("Fire1") && nextShot <= 0 && ammoCount > 0)
         {
-
             animacion.SetTrigger("Disparar");
             soundFX.playSound("shot");
             RaycastHit hit;
@@ -39,11 +40,11 @@ public class ShootController : MonoBehaviour
             if (hitted)
             {
                 HealthManager aux = hit.collider.gameObject.GetComponent<HealthManager>();
-                if (aux!=null)
+                if (aux != null)
                 {
-                    aux.recibeImpacto(34f);
+                    aux.recibeImpacto(damage);
                 }
-
+                
                 if (hit.collider.CompareTag("Enemy"))
                 {
                     GameObject creado = Instantiate(blood, hit.point, Quaternion.LookRotation(hit.normal));
@@ -53,13 +54,13 @@ public class ShootController : MonoBehaviour
                 else
                 {
                     GameObject creado = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
-                    
+
                 }
                 Debug.DrawLine(transform.position, hit.point, Color.red, 2f);
             }
             else
             {
-                Debug.DrawRay(transform.position, transform.forward*100f, Color.black, 2f);
+                Debug.DrawRay(transform.position, transform.forward * 100f, Color.black, 2f);
             }
             nextShot = cooldownShoot;
             ammoCount--;

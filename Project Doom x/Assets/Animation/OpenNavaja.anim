@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: OpenNavaja
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,8 +19,16 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: f5044383d7d055c448ccf866c54c1ca5, type: 3}
+    - time: 0
+      value: {fileID: 21300000, guid: 71585bfba78232b4aa6d18aa5ec24803, type: 3}
+    - time: 0.23333333
+      value: {fileID: 21300000, guid: 0c7e5368c875dfb499a0a4955854e4fd, type: 3}
+    - time: 0.26666668
+      value: {fileID: 21300000, guid: 0a3d2d24765926a439cf1268d4ea0d62, type: 3}
+    - time: 0.31666666
+      value: {fileID: 21300000, guid: 0232f2d56707b944ba5814fa9d924973, type: 3}
+    - time: 0.6166667
+      value: {fileID: 21300000, guid: 0232f2d56707b944ba5814fa9d924973, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -40,13 +48,17 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f5044383d7d055c448ccf866c54c1ca5, type: 3}
+    - {fileID: 21300000, guid: 71585bfba78232b4aa6d18aa5ec24803, type: 3}
+    - {fileID: 21300000, guid: 0c7e5368c875dfb499a0a4955854e4fd, type: 3}
+    - {fileID: 21300000, guid: 0a3d2d24765926a439cf1268d4ea0d62, type: 3}
+    - {fileID: 21300000, guid: 0232f2d56707b944ba5814fa9d924973, type: 3}
+    - {fileID: 21300000, guid: 0232f2d56707b944ba5814fa9d924973, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.6333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

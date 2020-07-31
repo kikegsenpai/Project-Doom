@@ -7,7 +7,7 @@ public class MovementController : MonoBehaviour
     public float speed = 10f;
     public CharacterController controller;
 
-    public ShootController controladorDisparo;
+    public WeaponBehaviour controladorDisparo;
     public Transform groundCheck;
     public float checkRadius = 0.5f;
     public LayerMask ground;
