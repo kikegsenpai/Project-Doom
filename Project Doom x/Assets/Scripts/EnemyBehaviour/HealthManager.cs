@@ -24,4 +24,12 @@ public class HealthManager : MonoBehaviour
     {
         health -= damage;
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.name.Equals("Porrito"))
+        {
+            health -= other.GetComponent<LauncherBehaviour>().damage;
+        }
+    }
 }

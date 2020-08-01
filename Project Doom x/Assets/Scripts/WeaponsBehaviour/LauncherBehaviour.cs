@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class LauncherBehaviour : MonoBehaviour
 {
-    public GameObject smoke;
+    public ParticleSystem smoke;
     public String triggerName;
-    public float damage = 30f;
+    public float damage = 1f;
     public SoundManagerScript soundFX;
     public TextMeshProUGUI ammoDisplay;
     public GameObject blood;
@@ -38,36 +38,8 @@ public class LauncherBehaviour : MonoBehaviour
             animacion.SetTrigger(triggerName);
             //soundFX.playSound("shot");
             Invoke("echarHumo", 1.8f);
-            RaycastHit hit;
-            bool hitted = Physics.Raycast(transform.position, transform.forward, out hit);
-            if (hitted)
-            {
-                HealthManager aux = hit.collider.gameObject.GetComponent<HealthManager>();
-                if (aux != null)
-                {
-                    aux.recibeImpacto(damage);
-                }
-                
-                if (hit.collider.CompareTag("Enemy"))
-                {
-                    GameObject creado = Instantiate(blood, hit.point, Quaternion.LookRotation(hit.normal));
-                    Destroy(creado, 1f);
-
-                }
-                else
-                {
-                    GameObject creado = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
-
-                }
-                Debug.DrawLine(transform.position, hit.point, Color.red, 2f);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.forward * 100f, Color.black, 2f);
-            }
             nextShot = cooldownShoot;
             ammoCount--;
-
         }
         nextShot -= Time.deltaTime;
         ammoDisplay.text = ammoCount.ToString();
@@ -75,6 +47,6 @@ public class LauncherBehaviour : MonoBehaviour
     }
     void echarHumo()
     {
-        Instantiate(smoke, transform.position, transform.rotation);
+        smoke.Play();
     }
 }
