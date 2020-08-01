@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class WeaponBehaviour : MonoBehaviour
 {
+    public String triggerName;
     public float damage = 30f;
     public SoundManagerScript soundFX;
     public TextMeshProUGUI ammoDisplay;
@@ -33,7 +34,7 @@ public class WeaponBehaviour : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") && nextShot <= 0 && ammoCount > 0)
         {
-            animacion.SetTrigger("Disparar");
+            animacion.SetTrigger(triggerName);
             soundFX.playSound("shot");
             RaycastHit hit;
             bool hitted = Physics.Raycast(transform.position, transform.forward, out hit);

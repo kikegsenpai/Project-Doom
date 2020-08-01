@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class MeleeBehaviour : MonoBehaviour
 {
+    public String primaryTriggerName;
+    public String secondaryTriggerName;
+
     public float damage = 30f;
     //public SoundManagerScript soundFX;
     public GameObject blood;
@@ -28,7 +31,7 @@ public class MeleeBehaviour : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && nextShot <= 0)
         {
-            animacion.SetTrigger("Estocada");
+            animacion.SetTrigger(primaryTriggerName);
             //soundFX.playSound("shot");
             RaycastHit hit;
             bool hitted = Physics.Raycast(transform.position, transform.forward, out hit,rangeOfAttac);
@@ -62,7 +65,7 @@ public class MeleeBehaviour : MonoBehaviour
 
         } else if (Input.GetButtonDown("Fire2") && nextShot <= 0)
         {
-            animacion.SetTrigger("Tajo");
+            animacion.SetTrigger(secondaryTriggerName);
             //soundFX.playSound("shot");
             RaycastHit hit;
             bool hitted = Physics.Raycast(transform.position, transform.forward, out hit, rangeOfAttac);
