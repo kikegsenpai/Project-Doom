@@ -48,13 +48,13 @@ public class WeaponBehaviour : MonoBehaviour
                 
                 if (hit.collider.CompareTag("Enemy"))
                 {
-                    GameObject creado = Instantiate(blood, hit.point, Quaternion.LookRotation(hit.normal));
+                    GameObject creado = Instantiate(blood, hit.point, Quaternion.LookRotation(-hit.normal));
                     Destroy(creado, 1f);
 
                 }
                 else
                 {
-                    GameObject creado = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
+                    GameObject creado = Instantiate(impact, hit.point, Quaternion.LookRotation(-hit.normal));
 
                 }
                 Debug.DrawLine(transform.position, hit.point, Color.red, 2f);
